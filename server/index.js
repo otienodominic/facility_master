@@ -7,11 +7,11 @@ const cors = require('cors')
 
 const isDev = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 5000;
-const {MONGODB_URL } = require('./config')
+// const {MONGODB_URL } = require('./config')
 
-const db = require('./models')
+// const db = require('./models')
 
-const Router = require('./routes')
+// const Router = require('./routes')
 
 
 
@@ -39,23 +39,28 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
   // Database connections here!!
 
-  db.mongoose
-  .connect(process.env.MONGODB_URL , {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-  })
-  .then(() => {
-    console.log("Successfully connect to MongoDB.");    
-  })
-  .catch(err => {
-    console.error("Connection error", err);
-    process.exit();
-  });
+    // db.mongoose
+    // .connect(process.env.MONGODB_URL , {
+    //   useNewUrlParser: true,
+    //   useUnifiedTopology: true,
+    //   useFindAndModify: false
+    // })
+    // .then(() => {
+    //   console.log("Successfully connect to MongoDB.");    
+    // })
+    // .catch(err => {
+    //   console.error("Connection error", err);
+    //   process.exit();
+    // });
 
 // API Calls do go here below!
 
-app.use('/api', Router)
+// app.use('/api', Router)
+
+app.get('/api', function (req, res) {
+  res.set('Content-Type', 'application/json');
+  res.send('{"message":"Hello from the custom server!"}');
+});
 
 
   // All remaining requests return the React app, so it can handle routing.
