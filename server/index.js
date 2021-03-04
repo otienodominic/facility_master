@@ -66,7 +66,7 @@ app.use('/api', Router)
 
   // cors origin URL - Allow inbound traffic from origin
 corsOptions = {
-  // origin: "https://file-mx.herokuapp.com",
+  origin: "https://facility-master.herokuapp.com/",
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 app.use(cors(corsOptions));

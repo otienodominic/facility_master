@@ -12,7 +12,7 @@ A minimal example of using a Node backend (server for API, proxy, & routing) wit
 
 ## Deployment
 
-<!-- [Demo deployment](https://cra-node.herokuapp.com/):  -->
+The complete deployment can be found at: [Deployment](https://cra-node.herokuapp.com/): 
 
 ## Local Development
 
