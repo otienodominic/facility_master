@@ -7,7 +7,7 @@ const cors = require('cors')
 
 const isDev = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 5000;
-// const {MONGODB_URL } = require('./config')
+const {MONGODB_URL } = require('./config')
 
 // const db = require('./models')
 
@@ -31,7 +31,7 @@ if (!isDev && cluster.isMaster) {
 } else {
   const app = express();
 
-  app.use(bodyParser.json()) // for parsing application/json
+app.use(bodyParser.json()) // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true }))
 
   // Priority serve any static files.
@@ -39,19 +39,19 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
   // Database connections here!!
 
-    // db.mongoose
-    // .connect(process.env.MONGODB_URL , {
-    //   useNewUrlParser: true,
-    //   useUnifiedTopology: true,
-    //   useFindAndModify: false
-    // })
-    // .then(() => {
-    //   console.log("Successfully connect to MongoDB.");    
-    // })
-    // .catch(err => {
-    //   console.error("Connection error", err);
-    //   process.exit();
-    // });
+  db.mongoose
+  .connect(process.env.MONGODB_URL , {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+  })
+  .then(() => {
+    console.log("Successfully connect to MongoDB.");    
+  })
+  .catch(err => {
+    console.error("Connection error", err);
+    process.exit();
+  });
 
 // API Calls do go here below!
 
