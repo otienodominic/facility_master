@@ -42,7 +42,7 @@ const Facility = mongoose.model(
     },  
     location: {
         type: String,
-        enum:[County, Constituency, Ward],
+        enum:['County', 'Constituency', 'Ward'],
         required: true,
     }, 
     landmark: {

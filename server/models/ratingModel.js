@@ -12,7 +12,7 @@ const Ratings = mongoose.model(
         ref: 'Facility',
     },
     value: {
-      type: Integer,
+      type: Number,
       enum: [1, 2, 3, 4, 5],       
     },    
   }),

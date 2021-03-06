@@ -9,9 +9,9 @@ const isDev = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 5000;
 const {MONGODB_URL } = require('./config')
 
-// const db = require('./models')
+const db = require('./models')
 
-// const Router = require('./routes')
+const Router = require('./routes')
 
 
 
@@ -55,12 +55,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // API Calls do go here below!
 
-// app.use('/api', Router)
+app.use('/api', Router)
 
-app.get('/api', function (req, res) {
-  res.set('Content-Type', 'application/json');
-  res.send('{"message":"Hello from the custom server!"}');
-});
+// app.get('/api', function (req, res) {
+//   res.set('Content-Type', 'application/json');
+//   res.send('{"message":"Hello from the custom server!"}');
+// });
 
 
   // All remaining requests return the React app, so it can handle routing.
@@ -76,7 +76,10 @@ corsOptions = {
 };
 app.use(cors(corsOptions));
 
-  app.listen(PORT, function () {
+// Testing express endpoints
+exports.app = app;
+
+app.listen(PORT, function () {
     console.error(`Node ${isDev ? 'dev server' : 'cluster worker '+process.pid}: listening on port ${PORT}`);
   });
 }

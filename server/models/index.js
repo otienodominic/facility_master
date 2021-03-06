@@ -6,6 +6,7 @@ const db = {}
 db.mongoose = mongoose
 
 db.user = require('./userModel')
-db.file = require('./facilityModel')
+db.facility = require('./facilityModel')
+db.ratings = require('./ratingModel')
 
 module.exports = db
