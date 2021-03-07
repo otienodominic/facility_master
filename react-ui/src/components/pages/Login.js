@@ -35,7 +35,8 @@ function Login(props) {
         clearErrors()
     }
     return (
-        <form className='login-form' onSubmit={onsubmit}>            
+        <form className='login-form' onSubmit={onsubmit}>  
+          <span>Please Login to continue</span>          
             <div className='container'>                
                 <input type="text" placeholder="Enter Email" name="email" value={email} onChange={onchange} required />
                
