@@ -1,33 +1,46 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { Container } from 'reactstrap';
 import TableContainer from '../Facility/TableContainer';
-import { SelectColumnFilter } from '../Facility/Filters';
+
 function Resource(props) {
-    const url = props.location.href
-    const plural = props.location.plural    
-    const [data, setData] = useState([])
-    useEffect(() => {
-        const fetchData =async()=>{            
-            let username = 'admin';
-            let password = 'district';
-            let headers = new Headers();
+console.log(props)
 
-            //headers.append('Content-Type', 'text/json');
-            headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
 
-            const response = await fetch(url, {method:'GET',headers, })                
-                .then(response => response.json([]))
-                .then(json => setData(json));            
-        }
-        fetchData()         
-        }, [])
-        
-        console.log(data)
-    return (
-        <div>
-            
-        </div>
-    )
+// console.log(data)
+//   const columns = useMemo(
+//     () => [
+//       {
+//         Header: () => null,
+//         id: 'expander', // 'id' is required
+//         Cell: ({ row }) => (
+//           <span {...row.getToggleRowExpandedProps()}>
+//             {row.isExpanded ? '👇' : '👉'}
+//           </span>
+//         ),
+//       },      
+//       {
+//         Header: 'ID',
+//         accessor: 'id',
+//       },
+//       {
+//         Header: 'Resource Name',
+//         accessor: 'displayName',
+//       },
+      
+//     ],
+//     []
+//   );
+
+  return (
+    // <Container style={{ marginTop: 100 }}>
+    //   <TableContainer
+    //     columns={columns}
+    //     data={data}       
+    //   />
+    // </Container>
+
+    <div>hello</div>
+  );
 }
 
 export default Resource

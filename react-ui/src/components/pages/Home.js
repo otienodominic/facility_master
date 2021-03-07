@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { Container } from 'reactstrap';
-  import TableContainer from '../Facility/TableContainer';
-  import { SelectColumnFilter } from '../Facility/Filters';
+import TableContainer from '../Facility/TableContainer';
+import {useHistory, withRouter} from 'react-router-dom'
+import { SelectColumnFilter } from '../Facility/Filters';
 import { encode } from "base-64";
 import AuthContext from '../../context/authContext/authContext'
 import { Link } from 'react-router-dom';
-import {useHistory} from 'react-router-dom'
 
 
 export default function Home(props) {
+  const history = useHistory()
        const [data, setData] = useState([])
     useEffect(() => {
         const fetchData =async()=>{
@@ -31,15 +32,34 @@ export default function Home(props) {
         }, [])
   
     const renderRowSubComponent = (row) => {
-      const {        
-        href,
+      const { 
         plural
       } = row.original;
 
-      const viewResource = () => {        
+      const viewResource = async() => {  
+        let url = `https://play.dhis2.org/2.34.3/api/${plural}`
+            let username = 'admin';
+            let password = 'district';
+            let headers = new Headers();
+
+            headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
+
+            const response = await fetch(url, {method:'GET',
+                    headers: headers,               
+                })                
+            const body = await response.json()  
+            
+            // destructure the required object here
+            const allowed = [plural]
+            Object.keys(body)
+                .filter(key => !allowed.includes(key))
+                .forEach(key => delete body[key]); 
+            // get the object 
+        const mural = Object.values(body)[0]
+        console.log(mural)
         props.history.push('/resource/'+plural)
-        props.history.push({
-            href, plural
+        history.push({
+            url, body, plural, mural
         })
       }
       return (        
