@@ -6,11 +6,12 @@ import Home from './components/pages/Home'
 import Login from './components/pages/Login'
 //import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-
+import PrivateRoute from './components/routing/PrivateRoute'
 import FacilityState from './context/facilityContext/facilityState'
 import AuthState from './context/authContext/authState'
 import setAuthToken from './utils/setAuthToken';
 import Resource from './components/pages/Resource';
+import Register from './components/pages/Register';
 
 // import card from './components/Files/card'
 
@@ -30,9 +31,9 @@ function App() {
           <div>
             <Navbar />
             <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/resource/:id' component={Resource}/>
-              {/* <Route exact path='/register' component={Register} /> */}
+              <PrivateRoute exact path='/' component={Home} />
+              <PrivateRoute exact path='/resource/:id' component={Resource}/>
+              <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} /> 
               {/* <Route exact path='/card' component={card} />             */}
             </Switch>

@@ -24,11 +24,14 @@ function Login(props) {
           ...user,
           [e.target.name]: e.target.value
         })
-        if (error !== null) { clearErrors() }
+        if (error !== null) { 
+          
+          clearErrors() }
       }
     const onsubmit =(e)=>{
         e.preventDefault()
         login({ email, password})
+        if(error){}
         clearErrors()
     }
     return (

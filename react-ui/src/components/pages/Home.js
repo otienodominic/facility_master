@@ -1,16 +1,18 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useState, useMemo, useContext } from 'react'
 import { Container } from 'reactstrap';
 import TableContainer from '../Facility/TableContainer';
 import {useHistory, withRouter} from 'react-router-dom'
 import { SelectColumnFilter } from '../Facility/Filters';
 import { encode } from "base-64";
 import AuthContext from '../../context/authContext/authContext'
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 export default function Home(props) {
   const history = useHistory()
-       const [data, setData] = useState([])
+  const authContext = useContext(AuthContext);
+  const { isAuthencated, loading } = authContext;
+  const [data, setData] = useState([])
     useEffect(() => {
         const fetchData =async()=>{
             let url = 'https://play.dhis2.org/2.34.3/api/resources'
@@ -96,12 +98,19 @@ export default function Home(props) {
     );
   
     return (
-      <Container style={{ marginTop: 100 }}>
-        <TableContainer
-          columns={columns}
-          data={data}
-          renderRowSubComponent={renderRowSubComponent}
-        />
-      </Container>
+      <div>
+        {!isAuthencated ? (<Redirect to='/login' />) : (
+          <Container style={{ marginTop: 100 }}>
+          <TableContainer
+            columns={columns}
+            data={data}
+            renderRowSubComponent={renderRowSubComponent}
+          />
+           </Container>
+        )       
+     
+        }
+        
+      </div>
     );
 }
