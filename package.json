@@ -8,8 +8,7 @@
   "scripts": {
     "start": "node server",
     "build": "cd react-ui/ && npm install && npm run build",
-    "dev": "nodemon server",
-    "test": "jest"
+    "dev": "nodemon server"
   },
   "cacheDirectories": [
     "node_modules",
@@ -35,8 +34,5 @@
     "create-react-app",
     "react"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "jest": "^26.6.3"
-  }
+  "license": "MIT"
 }
