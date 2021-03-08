@@ -7,7 +7,7 @@ const [data, setData] = useState([]);
 
 useEffect(() => {
   const doFetch = async () => {
-    let url = `https://play.dhis2.org/2.34.3/api/${props.location.plural}`
+    let url = `https://cors-anywhere.herokuapp.com/https://play.dhis2.org/2.34.3/api/${props.location.plural}`
             let username = 'admin';
             let password = 'district';
             let headers = new Headers();
