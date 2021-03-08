@@ -1,14 +1,11 @@
 # master facility list
 
 Repository of the master facility list implementation. Being a quick demonstration of setting up a web application to 
-perform the following:
-
-1. Add, update, delete and list the items from the registry
-2. Allows searching preferably with multiple attributes. 
-3. Simple reports, and other innovative additions
-
-
+consume the [DHIS2 API](https://play.dhis2.org/2.35.1/api/resources)
+ 
 A minimal example of using a Node backend (server for API, proxy, & routing) with a [React frontend](https://github.com/facebookincubator/create-react-app).
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Deployment
 
