@@ -39,7 +39,7 @@ export default function Home(props) {
       } = row.original;
 
       const viewResource = async() => {  
-        let url = `https://cors-anywhere.herokuapp.com/https://play.dhis2.org/2.34.3/api/${plural}`
+        let url = `https://play.dhis2.org/2.34.3/api/${plural}`
             let username = 'admin';
             let password = 'district';
             let headers = new Headers();
@@ -47,7 +47,7 @@ export default function Home(props) {
             headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
 
             const response = await fetch(url, {method:'GET',
-                    headers: headers,               
+                    headers: headers, mode: "no-cors",              
                 })                
             const body = await response.json()  
             
