@@ -70,11 +70,11 @@ app.use('/api', Router)
   });
 
   // cors origin URL - Allow inbound traffic from origin
-corsOptions = {
-  origin: "https://play.dhis2.org/2.34.3/api",
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
+// corsOptions = {
+//   origin: "https://facility-master.herokuapp.com/",
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
+app.use(cors());
 
 // Testing express endpoints
 exports.app = app;

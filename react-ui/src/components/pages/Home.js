@@ -15,7 +15,7 @@ export default function Home(props) {
   const [data, setData] = useState([])
     useEffect(() => {
         const fetchData =async()=>{
-            let url = 'https://play.dhis2.org/2.34.3/api/resources'
+            let url = 'https://cors-anywhere.herokuapp.com/https://play.dhis2.org/2.34.3/api/resources'
             let username = 'admin';
             let password = 'district';
             let headers = new Headers();
@@ -39,7 +39,7 @@ export default function Home(props) {
       } = row.original;
 
       const viewResource = async() => {  
-        let url = `https://play.dhis2.org/2.34.3/api/${plural}`
+        let url = `https://cors-anywhere.herokuapp.com/https://play.dhis2.org/2.34.3/api/${plural}`
             let username = 'admin';
             let password = 'district';
             let headers = new Headers();
